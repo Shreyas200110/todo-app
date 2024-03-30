@@ -1,0 +1,11 @@
+.outer_wrapper{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 40px;
+}

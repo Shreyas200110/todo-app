@@ -6,19 +6,22 @@ import {activeTodosState, completedTodosState, todosState} from '../../Atoms/ato
 
 function Todos(){
     const activeTodos = useRecoilValue(activeTodosState);
-    const completedTodos = useRecoilValue(completedTodosState);
     const [todos, setTodos] = useRecoilState(todosState);
     
     useEffect(() => {
-        if(activeTodos) setTodos(activeTodos);
-        else setTodos([]);
+        setTodos(activeTodos);
     }, [activeTodos]);
 
     return(
         <div className="List"> 
             {
                 todos?.map((todo) => {
-                    return <SingleTodo title={todo?.title} description={todo?.description}></SingleTodo>
+                    return <SingleTodo 
+                                title={todo?.title} 
+                                description={todo?.description} 
+                                id = {todo.id}
+                                state = {todo.state}
+                            ></SingleTodo>
                 })
             }
         </div>

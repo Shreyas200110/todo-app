@@ -5,6 +5,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import './AddNew.css'
 import { useSetRecoilState } from "recoil";
 import { activeTodosState } from "../../Atoms/atoms"
+import { v4 as uuidv4 } from 'uuid'; 
 
 function AddNew() {
 
@@ -15,12 +16,15 @@ function AddNew() {
     const addButtonClicked = () => {
         setActiveTodos((activeTodos) => {
             const newTodos = [...activeTodos, {
-                id: "1",
+                id: uuidv4(), 
                 title: titleRef.current.value,
                 description: descRef.current.value
             }];
             return newTodos;
         });
+
+        titleRef.current.value = "";
+        descRef.current.value = "";
     }
 
     return (

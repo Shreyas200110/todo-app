@@ -8,3 +8,8 @@ export const completedTodosState = atom({
     key: "completedTodosState",
     default: []
 });
+
+export const todosState = atom({
+    key: "todosState",
+    default: []
+});

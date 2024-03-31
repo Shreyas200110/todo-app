@@ -13,3 +13,8 @@ export const todosState = atom({
     key: "todosState",
     default: []
 });
+
+export const currTabState = atom({
+    key: "currTabState",
+    default: 0,
+})

@@ -3,3 +3,13 @@
     gap: 10px;
     justify-content: center;
 }
+
+.add_alert_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add_icon{
+    font-size: 20px;
+}

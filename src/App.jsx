@@ -6,11 +6,11 @@ function App() {
 
   return (
     <RecoilRoot>
-      <div>
+      <div className='body_wrapper'>
         <OverallWrapper></OverallWrapper>
       </div>
     </RecoilRoot>
-  )
+   )
 }
 
 export default App

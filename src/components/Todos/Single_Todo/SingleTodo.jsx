@@ -1,4 +1,5 @@
 import './SingleTodo.css'
+import { ButtonGroup, Button } from '@mui/material'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useSetRecoilState } from 'recoil'
@@ -26,8 +27,8 @@ function SingleTodo({id, title, description, state}){
         if(state === 'completed'){
             let newCompletedTodos = [];
             setCompletedTodos((completedTodos) => {
-                newCompletedTodos = completedTodos.filter((todo) => {
-                    todo.id !== id;
+                newCompletedTodos = [...completedTodos].filter((todo) => {
+                    return todo.id !== id;
                 });
                 return newCompletedTodos;
             });
@@ -36,7 +37,7 @@ function SingleTodo({id, title, description, state}){
         else if(state === 'active'){
             setActiveTodos((activeTodos) => {
                 return activeTodos.filter((todo) => {
-                    todo.id !== id;
+                    return todo.id !== id;
                 });
             });
         }
@@ -45,7 +46,7 @@ function SingleTodo({id, title, description, state}){
     return(
         <div className="todo_wrapper">
             <div className="content_wrapper">
-                <div className="title">
+                <div className="todo_title">
                     {title}
                 </div>
                 <div className="desc">
@@ -53,8 +54,26 @@ function SingleTodo({id, title, description, state}){
                 </div>
             </div>
             <div className="actions_wrapper">
-                <FontAwesomeIcon className="check" icon={faCheck} onClick={handleCheckClicked} />
-                <FontAwesomeIcon className="delete" icon={faTrash} onClick={handleDeleteClicked} />
+                <ButtonGroup variant="outlined" aria-label="Basic button group"
+                    
+                >
+                    <Button
+                        sx={{
+                            borderColor:'#453953'
+                        }}
+                    >
+                        <FontAwesomeIcon className="check" icon={faCheck} onClick={handleCheckClicked} />
+                    </Button>
+                    <Button
+                        sx={{
+                            borderColor:'#5c5470',
+                        }}
+                    >
+                        <FontAwesomeIcon className="delete" icon={faTrash} onClick={handleDeleteClicked} 
+                            
+                        />
+                    </Button>
+                </ButtonGroup>
             </div>
         </div>
     )

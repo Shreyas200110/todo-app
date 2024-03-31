@@ -57,13 +57,13 @@ function SingleTodo({id, title, description, state}){
                 <ButtonGroup variant="outlined" aria-label="Basic button group"
                     
                 >
-                    <Button
+                    {state === 'active' && (<Button
                         sx={{
                             borderColor:'#453953'
                         }}
                     >
                         <FontAwesomeIcon className="check" icon={faCheck} onClick={handleCheckClicked} />
-                    </Button>
+                    </Button>)}
                     <Button
                         sx={{
                             borderColor:'#5c5470',

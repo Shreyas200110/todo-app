@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import SingleTodo from './Single_Todo/SingleTodo'
 import './Todos.css'
 import { useRecoilValue, useRecoilState } from 'recoil';
-import {activeTodosState, completedTodosState, todosState} from '../../Atoms/atoms'
+import {activeTodosState, todosState} from '../../Atoms/atoms'
 
 function Todos(){
     const activeTodos = useRecoilValue(activeTodosState);
